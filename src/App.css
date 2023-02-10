@@ -1,0 +1,27 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+:root {
+  --background: #c3e3e3;
+  --primary: #00474b;
+  --secondary: #33c0b0;
+  --light-secondary: #9fe8df;
+  --white: #ffffff;
+  --white-gray: #f3f8fb;
+  --gray: #537977;
+  --black-gray: #3c6564;
+  --light-gray: #9dbdbf;
+  --font: 'Space Mono', monospace;
+}
+#root {
+  font-family: var(--font);
+}
+.input-style {
+  @apply bg-[var(--white-gray)] w-full py-2 px-4 text-[var(--primary)] font-bold text-2xl placeholder:text-[var(--gray)]  text-end focus:outline-none focus:border-[var(--secondary)] rounded-sm ;
+}
+.icon {
+  @apply absolute top-[50%] translate-y-[-50%] ml-4 text-[var(--light-gray)] font-bold text-lg;
+}
