@@ -25,12 +25,17 @@ function App() {
     total = parseFloat(total.toFixed(2))
     setResult({ amount, total })
   }
+  const reset = () => {
+    setValueSelected(0)
+    setBill(-1)
+    setPeople(-1)
+    setResult({amount:0.00, total:0.00 })
+  }
   useEffect(() => {
     if((valueSelected && bill && people) >0) {
       calculate()
     }
   },[valueSelected, bill, people])
-
 
 
   return (
@@ -42,7 +47,7 @@ function App() {
           <SelectPercent percents={percents} valueSelected={valueSelected} setValueSelected={setValueSelected}/>
           <InputWithIcon text='Number of People' value={people} saveValue={savePeople} render={()=> {return <BsFillPersonFill className='icon'/> }}/>
         </div>
-        <Result result={result} />
+        <Result result={result} reset={reset} values={ {bill, people, valueSelected} }/>
       </div>
     </div>
   )

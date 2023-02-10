@@ -3,11 +3,17 @@ import React from "react";
 interface result {
   result: {
     amount:number,
-    total:number
+    total:number,
+  },
+  reset: () => void,
+  values: {
+    bill: number,
+    people: number,
+    valueSelected: number
   }
 }
 
-const Result = ({result}: result) => {
+const Result = ({result, reset, values}: result) => {
   return (
     <div className="p-6 bg-[var(--primary)] rounded-2xl grid gap-6 md:flex md:flex-col md:justify-between">
       <div className="grid gap-6">
@@ -32,7 +38,7 @@ const Result = ({result}: result) => {
           </strong>
         </div>
       </div>
-      <button className="bg-[var(--secondary)] rounded-md text-[var(--primary)] text-xl font-bold py-3 hover:bg-[var(--light-secondary)] md:w-full">RESET</button>
+      <button onClick={reset} disabled={(values.bill >= 1 && values.people >= 1 && values.valueSelected >= 1)? false:true} className="bg-[var(--secondary)] rounded-md text-[var(--primary)] text-xl font-bold py-3 hover:bg-[var(--light-secondary)] md:w-full disabled:bg-[var(--light-primary)] disabled:text-[var(--black-gray)]">RESET</button>
     </div>
   );
 };

@@ -31,6 +31,7 @@ const InputWithIcon = ( {render, text, saveValue, value}:data ) => {
           id="people"
           className="input-style border-2 border-white invalid:border-red-500 "
           placeholder={"0"}
+          value={value === -1? '': value}
           min={1}
           step={text != 'Number of People'? "0.01": '1'}
           onChange={ handdleInputValue }
